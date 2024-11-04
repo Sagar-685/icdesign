@@ -545,6 +545,13 @@ footer p {
     text-align: center;
     margin: 40px 0 10px;
 }
+.title h3 {
+    font-size: 1.7rem;
+    color: #007acc;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px 0 10px;
+}
 
 .underline {
     width: 60px;
@@ -815,4 +822,85 @@ body {
     border-radius: 20px;
     border-color: #ff9f00;
     background-color: #ffffff;
+}
+/* Container and Header */
+.container1 {
+    width:100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #434952; /* Optional background color for contrast */
+    border-radius: 8px;
+}
+
+.container1 h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007acc;
+    font-weight:normal;
+    text-align: center;
+}
+
+/* Office Bearers Section */
+.office-bearers {
+    display: flex;
+    flex-direction: column; /* Ensure profiles are in a single row */
+    overflow-x: auto;
+    align-items: center;
+    white-space: nowrap;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+/* Individual Profile Style */
+.profile {
+    flex: 0 0 auto; /* Prevent profiles from shrinking or growing */
+    width: 250px;
+    text-align: center;
+    background-color: #595151;
+    border: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.profile img {
+    width: 200px;
+    height: 210px;
+    border-radius: 5px;
+    border-style: solid 5px;
+    border-color: #000;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.profile .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: black;
+    font-family: 'Arial', sans-serif;
+}
+
+.profile .role {
+    font-size: 1rem;
+    font-weight:normal;
+    color: #999595;
+}
+
+/* Scroll Bar Customization (Optional) */
+.office-bearers::-webkit-scrollbar {
+    height: 8px;
+}
+
+.office-bearers::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+.office-bearers::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 10px;
 }
