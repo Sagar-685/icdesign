@@ -29,3 +29,36 @@ function onPlayerReady(event) {
         }
     });
 }
+const carousel = document.getElementById('custom-carousel');
+const leftBtn = document.getElementById('custom-left-btn');
+const rightBtn = document.getElementById('custom-right-btn');
+
+// Width of one image + gap
+const imageWidth =300;
+
+// Move carousel to the left
+rightBtn.addEventListener('click', () => {
+    carousel.style.transition = 'transform 0.5s ease-in-out';
+    carousel.style.transform = `translateX(-${imageWidth}px)`;
+
+    // After the transition, move the first image to the end (for the loop)
+    setTimeout(() => {
+        carousel.appendChild(carousel.firstElementChild);
+        carousel.style.transition = 'none';
+        carousel.style.transform = 'translateX(0)';
+    }, 500);
+});
+
+// Move carousel to the right
+leftBtn.addEventListener('click', () => {
+    // Move the last image to the front (before the transition)
+    carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
+    carousel.style.transition = 'none';
+    carousel.style.transform = `translateX(-${imageWidth}px)`;
+
+    // Trigger the transition back to the original position
+    setTimeout(() => {
+        carousel.style.transition = 'transform 0.5s ease-in-out';
+        carousel.style.transform = 'translateX(0)';
+    }, 0);
+});
