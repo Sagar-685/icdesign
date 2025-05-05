@@ -30,35 +30,35 @@ function onPlayerReady(event) {
     });
 }
 const carousel = document.getElementById('custom-carousel');
-const leftBtn = document.getElementById('custom-left-btn');
-const rightBtn = document.getElementById('custom-right-btn');
+const images = carousel.children;
+const totalImages = images.length;
+let currentIndex = 0;
+const interval = 4000; // 4 seconds interval
 
-// Width of one image + gap
-const imageWidth =300;
+// Function to update the carousel position
+function updateCarousel() {
+    const offset = -currentIndex * (images[0].offsetWidth + 13); // Adjust with gap
+    carousel.style.transform = `translateX(${offset}px)`;
+}
 
-// Move carousel to the left
-rightBtn.addEventListener('click', () => {
-    carousel.style.transition = 'transform 0.5s ease-in-out';
-    carousel.style.transform = `translateX(-${imageWidth}px)`;
+// Function to go to the next image
+function nextImage() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+}
 
-    // After the transition, move the first image to the end (for the loop)
-    setTimeout(() => {
-        carousel.appendChild(carousel.firstElementChild);
-        carousel.style.transition = 'none';
-        carousel.style.transform = 'translateX(0)';
-    }, 500);
-});
+// Function to go to the previous image
+function prevImage() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+}
 
-// Move carousel to the right
-leftBtn.addEventListener('click', () => {
-    // Move the last image to the front (before the transition)
-    carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
-    carousel.style.transition = 'none';
-    carousel.style.transform = `translateX(-${imageWidth}px)`;
+// Set interval for automatic carousel
+setInterval(nextImage, interval);
 
-    // Trigger the transition back to the original position
-    setTimeout(() => {
-        carousel.style.transition = 'transform 0.5s ease-in-out';
-        carousel.style.transform = 'translateX(0)';
-    }, 0);
-});
+// Event listeners for navigation buttons
+document.getElementById('custom-left-btn').addEventListener('click', prevImage);
+document.getElementById('custom-right-btn').addEventListener('click', nextImage);
+
+// Initial update
+updateCarousel();
