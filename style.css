@@ -1271,3 +1271,60 @@ body {
 .more-info-btn:hover {
     background-color: #1e7e34;
 }
+.more-info-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.more-info-btn:hover {
+    background-color: #0056b3;
+}
+
+.deadline-box {
+    margin: 20px auto;
+    padding: 15px 25px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: blinkBackground 2.5s infinite;
+}
+
+.deadline-box h5 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333;
+}
+
+.deadline-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.deadline-box li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #555;
+}
+
+.item-title {
+    font-weight: 700;
+    color: #007bff;
+}
+
+@keyframes blinkBackground {
+    0%   { background-color: #f8f9fa; }
+    25%  { background-color: #fff3cd; } /* soft yellow */
+    50%  { background-color: #f8d7da; } /* soft red/pink */
+    75%  { background-color: #d1ecf1; } /* soft blue */
+    100% { background-color: #f8f9fa; }
+}
